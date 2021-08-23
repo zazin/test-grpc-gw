@@ -1,0 +1,5 @@
+version: v1beta1
+name: buf.build/zazin/test-grpc-gw
+build:
+  roots:
+    - proto

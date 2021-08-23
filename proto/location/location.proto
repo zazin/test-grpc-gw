@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package location;
+
+option go_package = "test-grpc-gw/proto;location";
+
+import "google/api/annotations.proto";
+
+// The greeting service definition
+service Location {
+    // Sends a greeting
+    rpc FindCountry (Empty) returns (CountryList) {
+        option (google.api.http) = {
+            get: "/v1/location"
+        };
+    }
+}
+
+message Empty {
+
+}
+
+// The response message containing the greetings
+message Country {
+    int32 id = 1;
+    string code = 2;
+    string name = 3;
+}
+
+message CountryList {
+    repeated Country countries = 1;
+}
